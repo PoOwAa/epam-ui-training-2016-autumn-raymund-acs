@@ -1,0 +1,16 @@
+Deferred - Use promises in storage
+
+2.1 Currently the methods of MemoryStorage have callback parameters to notify us when the operation is done.
+    Modify them to use promises instead of callbacks!
+     - createTopic(topic, done) -> createTopic(topic).then(done);
+     - getAllTopics(searchString, done) -> getAllTopics(searchString).then(done);
+
+    Use the jQuery Deferred API.
+    var deferred = $.Deferred(): creates a deferred
+    deferred.resolve(result): resolve the deferred, the result is optional
+    deferred.promise(): returns the promise
+
+2.2 In TopicController update the createTopic and getAllTopics invocations to use the promises
+    deferred.then(successFn): executes successFn when the operation is successfully done
+
+2.3 (Bonus) If create error handling form createTopic calls.

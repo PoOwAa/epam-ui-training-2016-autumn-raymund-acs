@@ -1,0 +1,5 @@
+Implement validation error clearing and message form clearing functionality
+
+- Open message-view.js
+- Implement the body of clearValidationErrors method to enable it to hide the error buble and remove error class from input fields.
+- Implement the body of clearMessageForm method to enable it to clear text and email address on the input form.

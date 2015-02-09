@@ -1,0 +1,14 @@
+To modify:
+  - ajax-storage.js
+      getAllTopics:
+        get request to /forum/topics
+        data: searchString (a parameter)
+        use the THEN handler after the call
+        the handler is called with a parameter that will contain an array
+        call the deserializeTopic private function for each item and add these to a result array
+For the extra:
+  - topic-controller.js
+      fetchTopics method
+        b; modify the code to use done and fail callbacks instead of then
+        a; modify the second handler in the then call
+      you can test this by modifying the getAllTopics method in ajax-storage.js to call a different url (e.g.: /forum/notexists)

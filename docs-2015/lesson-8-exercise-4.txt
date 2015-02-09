@@ -1,0 +1,15 @@
+To modify:
+    ajax-storage.js
+        getAllMessages
+        Service api:
+            url: /forum/topic/[topicID]/messages
+            params:
+                searchString: (string) - optional; filter the results
+            response:
+                array of objects 
+        The response elements can be pre-processed by deserializeMessage private method
+        Return with the ajax request promise
+For the extra:
+    Implement this in message-controller.js file fetchMessages method
+    the http status code arrives as a parameter in the callback (jqXHR, textStatus, errorThrown)
+    This can be tested by modifing the getAllMessages url to a non-existing one

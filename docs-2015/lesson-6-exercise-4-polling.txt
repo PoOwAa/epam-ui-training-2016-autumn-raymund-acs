@@ -1,0 +1,23 @@
+Polling - Automatically update topic lists
+
+4.1 - Add a new event called newTopicsFound to BaseStorage. This event will notify its listeners if new topic are found in server.
+    - Create a new abstract method in BaseStorage called startCheckingNewTopics. This method starts the listening to the server for the new topic.
+    
+    function BaseStorage() {
+        this.newTopicsFound = new Event();
+    }
+  
+    BaseStorage.prototype.startCheckingNewTopics = function () { };
+ 
+4.2 Implement the startCheckingNewTopics() method in AjaxStorage:
+     - In every 5 sec load all topic from the server: 
+       For repeated timing use setInterval(functionToExecute, periodInMillisec);
+       For loading all topic use getAllTopics("")
+     - Check if the number of topic are increased?  
+     - If yes then raise the newTopicFound event so it will notify its subscribers
+     - Store the last number of topic in a field in the storage.
+  
+4.3 Uncomment the following two line in topicController to enable automatic topic list refreshing.
+
+    Storage.startCheckingNewTopics();
+    Storage.newTopicsFound.subscribe(fetchTopics);

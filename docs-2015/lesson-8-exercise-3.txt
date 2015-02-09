@@ -1,0 +1,6 @@
+ajax-storage.js
+    createTopic
+        do a post request to the "/forum/topics"
+        with these data:
+            title: topic's title (params title attribute)
+            email: email address of creator (params email attribute)

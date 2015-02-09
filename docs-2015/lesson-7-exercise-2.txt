@@ -1,0 +1,7 @@
+When clicked outside of search in small view: Show logo and collapse input field. It preserve the field expanded if the field is not empty
+
+- open app-controller.js
+- attach event handler on searchFormInput
+- use appropriate event handler (google it ;)
+- if the content is not empty, remove hide-on-small-screen from the logo
+- also, remove the focused class

@@ -1,0 +1,12 @@
+Implement toast view behaviour
+
+- open toast-view.js
+- expand the module's body to publish (return) the two following methods:
+      show
+	  hide
+	  
+- show: a function with a message, a class type and the success handler
+- it must show the toast with the given style and message, with a fade in effect, and when the effect is done, it must call the success handler
+
+- hide: a function with a success handler
+- it must hide the toast with a fadeout effect and once done, it must call the success handler

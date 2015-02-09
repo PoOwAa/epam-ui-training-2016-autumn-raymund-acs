@@ -1,0 +1,22 @@
+Observer pattern - Event
+
+1.1 Create an Event class in common/event.js.
+    Methods to have:
+     - subscribe(handlerFn)
+     - unsubscribe(handlerFn)
+     - publish(eventParam)
+
+1.2 Test it in console:
+
+    function alertMsg(msg) {  alert(msg);  }    
+    function printMsg(msg) {  console.log(msg);  }
+
+    var msgSender = new Event();
+    msgSender.subscribe(printMsg);
+    msgSender.subscribe(alertMsg);
+    msgSender.publish("Hi!");
+    
+    msgSender.unsubscribe(alertMsg);
+    msgSender.publish("Hi again!");
+
+1.3 (Bonus) Improve publish function to support arbitrary parameter list.

@@ -1,0 +1,26 @@
+Implement validation error element behaviour
+
+Open topic-view.js
+
+Add the following three methods:
+- renderValidationErrors
+- clearValidationErrors
+- clearTopicForm
+
+> clearValidationErrors
+
+Should clear all previous errors by
+- Hiding the error buble
+- Remove the error class from all affected fields
+
+> clearTopicForm
+
+Find and empty the textarea of the topic form
+
+> renderValidationErrors (validationErrors)
+
+Should call clearValidationErrors
+- If the validationErrors contains ‚title’, add the error class to the text area
+- If the validationErrors contains ‚email’, add the error class to the email area
+- Also, add the inline-table display property to the .error-buble
+

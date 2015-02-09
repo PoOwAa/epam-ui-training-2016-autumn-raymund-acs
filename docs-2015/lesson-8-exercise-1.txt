@@ -1,0 +1,26 @@
+<script id="topic-template" type="text/x-handlebars-template">
+    <article class="tile topic">
+        <a href="#/topics/TOPIC ID"><div class="content">TOPIC'S TITLE</div></a>
+        <div class="info">
+            <div class="date-time">
+                <div class="date"><span class="sprite calendar"></span> CREATE DATE</div>
+                <div class="time"><span class="sprite clock"></span> CREATE TIME</div>
+            </div>
+            <div class="email"  title="EMAIL ADDRESS"><span class="sprite at"></span> EMAIL ADDRESS</div>
+        </div>
+    </article>
+</script>
+
+id: topic id
+title: the topic’s title
+creationDate: the topic’s creation date
+creationTime: the topic’s creation time
+email: the creator’s email address
+
+Modify:
+  topic-view.js
+    renderContainer method:
+      initalize topicTemplate variable
+    renderTopics private function:
+      apply the template with the current topic data
+      insert the created element after the form (first article)

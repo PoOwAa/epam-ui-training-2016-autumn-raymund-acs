@@ -1,0 +1,6 @@
+Make sure that logo is hidden on small screens
+
+- open app-controller.js
+- Look for the searchFormInput’s event handler
+- append the hide-on-small-screen class on the logo element
+- Append the focused class at the searchFormInput’s parent

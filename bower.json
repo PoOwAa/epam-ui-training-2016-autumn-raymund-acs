@@ -1,0 +1,15 @@
+{
+  "name": "epam-ui-training-2016-q4",
+  "version": "0.0.1",
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "proprietary",
+  "homepage": "",
+  "private": true,
+  "dependencies": {
+    "angular": "^1.4.9",
+    "jquery": "~2.2.0",
+    "angular-route": "~1.4.9"
+  }
+}
