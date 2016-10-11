@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>Simple Forum Application</title>
+
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,700" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="/assets/css/screen.css"/>
+    </head>
+    <body>
+        <header>
+            <div class="content">
+                <a href="#" class="logo">
+                    <span class="main-logo-text">&lt;</span>FORUM<span class="main-logo-text">&gt;</span>
+                </a>
+                <form id="search-form" class="search-form">
+                    <span class="sprite search"></span>
+                    <input type="text" placeholder="What are you searching for...?">
+                </form>
+            </div>
+        </header>
+
+        <section id="main-container" class="main-container">
+            <main class="clearfix content topics" id="topics">
+                <article class="tile form">
+                    <form class="new-topic-form content" id="new-topic-form">
+                        <textarea name="title" placeholder="Type your topic's name here..." tabindex="1"></textarea>
+                        <div class="input-group">
+                            <input name="email" type="email" placeholder="Type your email here..." tabindex="2" id="new-topic-email" class="new-topic-email">
+                            <div class="error-bubble">Error message!</div>
+                            <span>
+                                <button type="submit" tabindex="3" class="submit-button">Add</button>
+                            </span>
+                        </div>
+                    </form>
+                </article>
+            </main>
+        </section>
+
+        <footer class="clearfix">
+            <div class="content clearfix">
+                <div class="sprite epam-logo"></div>
+                <div class="pull-right copyright">(c) 2016 EPAM Systems Kft.</div>
+                <div class="pull-left attribution">Free Icon Set Designed by Brankic1979!</div>
+            </div>
+        </footer>
+
+        <div class="toast"></div>
+
+    </body>
+</html>
