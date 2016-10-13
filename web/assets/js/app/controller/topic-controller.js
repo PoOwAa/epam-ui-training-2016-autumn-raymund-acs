@@ -9,11 +9,31 @@ TopicController.topics = [];
 TopicController.init = function () {
     TopicView.renderContainer();
 
-    // TODO: Fetch topics on keyup event in the search form
+    // Type something in the search bar handler
+    $('#search-form').on('keyup', 'input', function (e) {
+        var searchValue = $(this).val();
+
+        // Delay the search, so it won't be executed while the use is typing.
+        clearTimeout($(this).data("timeout"));
+        $(this).data("timeout", setTimeout(function () {
+            searchString = searchValue;
+            fetchTopics();
+        }, 300));
+
+        e.preventDefault();
+    });
 
     fetchTopics();
 };
 
 fetchTopics = function() {
-    // TODO: Implement method
+    Storage.getAllTopics(searchString).then(
+        function (topics) {
+            TopicController.topics = topics;
+            TopicView.clearAndRenderTopics(topics);
+        },
+        function () {
+            console.log("Topic fetch failed", arguments);
+        }
+    );
 };

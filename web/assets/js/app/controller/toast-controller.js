@@ -19,7 +19,12 @@ ToastController.type = {
  * @param {function} [done]
  */
 ToastController.showToast = function (type, msg, done) {
-    // TODO: Implement method
+    $(".toast")
+        .removeClass()
+        .addClass("toast")
+        .addClass(type)
+        .html(msg)
+        .fadeIn('fast', done);
 };
 
 /**
@@ -29,7 +34,7 @@ ToastController.showToast = function (type, msg, done) {
  * @param {function} [done]
  */
 ToastController.hideToast = function (done) {
-    // TODO: Implement method
+    $(".toast").fadeOut('fast', done);
 };
 
 ToastController.show = function (type, msg) {

@@ -8,7 +8,7 @@
     "epam",
     "training"
   ],
-  "author": "Adam Soltesz, Laszlo Szikszai, Daniel Koos",
+  "author": "Adam Soltesz, Laszlo Szikszai",
   "license": "ISC",
   "dependencies": {
     "body-parser": "1.14.2",

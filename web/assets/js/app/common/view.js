@@ -9,8 +9,26 @@ var View = { };
  * @returns {jQuery}
  */
 View.tileInfo = function (date, time, email) {
-    // TODO: Implement method
-};
+    var $info = $('<div class="info">');
+
+    $info.append(
+        $('<div class="date-time">').append(
+            $('<div class="date">')
+                .html(date)
+                .prepend(View.sprite('calendar'))
+        ).append(
+            $('<div class="time">')
+                .html(time)
+                .prepend(View.sprite('clock'))
+        )
+    ).append(
+        $('<div class="email">')
+            .attr('title', email)
+            .html(email)
+            .prepend(View.sprite('at'))
+    );
+    return $info;
+},
 
 /**
  * Returns a sprite element with given type.
@@ -19,5 +37,5 @@ View.tileInfo = function (date, time, email) {
  * @returns {jQuery}
  */
 View.sprite = function (type) {
-    // TODO: Implement method
-};
+    return $('<span class="sprite">').addClass(type);
+}
