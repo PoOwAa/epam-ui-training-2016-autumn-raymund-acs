@@ -1,0 +1,36 @@
+.body {
+    padding: 5px;
+}
+
+.colors:after {
+    clear: both;
+}
+
+.color {
+    float: left;
+    border: 1px solid #000000;
+    width: 123px;
+    height: 123px;
+}
+
+#red {
+    background-color: #c0392b;
+}
+
+#blue {
+    background-color: #3498db;
+}
+
+#green {
+    background-color: #2ecc71;
+}
+
+#yellow {
+    background-color: #f1c40f;
+}
+
+#userContent {
+    width: 500px;
+    height: 500px;
+    background-color: #bdc3c7;
+}
