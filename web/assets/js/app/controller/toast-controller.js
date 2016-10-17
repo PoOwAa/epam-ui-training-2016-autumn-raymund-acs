@@ -20,6 +20,8 @@ ToastController.type = {
  */
 ToastController.showToast = function (type, msg, done) {
     // TODO: Implement method
+    //console.log('Toast type: ' + type, ' msg: ' + msg);
+    $('.toast').addClass(type).text(msg).fadeIn('slow', done);
 };
 
 /**
@@ -30,6 +32,8 @@ ToastController.showToast = function (type, msg, done) {
  */
 ToastController.hideToast = function (done) {
     // TODO: Implement method
+    //console.log('Toast fadeOut');
+    $('.toast').removeClass().text('').fadeOut('slow', done);
 };
 
 ToastController.show = function (type, msg) {
