@@ -1,0 +1,27 @@
+{
+  "name": "epam-ui-training-2016-app",
+  "version": "0.0.1",
+  "description": "Simple forum application",
+  "main": "server.js",
+  "keywords": [
+    "forum",
+    "epam",
+    "training"
+  ],
+  "author": "Adam Soltesz, Laszlo Szikszai",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "1.14.2",
+    "express": "4.13.4",
+    "less-middleware": "2.0.1",
+    "node-persist": "0.0.8",
+    "xss": "0.2.10"
+  },
+  "devDependencies": {
+    "del": "2.2.0",
+    "gulp": "3.9.0",
+    "gulp-jshint": "2.0.0",
+    "gulp-nodemon": "2.0.6",
+    "gulp-sass": "2.1.1"
+  }
+}

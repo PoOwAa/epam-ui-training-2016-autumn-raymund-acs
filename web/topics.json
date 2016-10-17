@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "title": "Cats",
+    "creationDate": "2015.03.23",
+    "creationTime": "04:24",
+    "email": "example@example.com"
+  },
+  {
+    "id": 2,
+    "title": "Dogs",
+    "creationDate": "2015.03.23",
+    "creationTime": "04:24",
+    "email": "foo@bar.net"
+  }
+]
