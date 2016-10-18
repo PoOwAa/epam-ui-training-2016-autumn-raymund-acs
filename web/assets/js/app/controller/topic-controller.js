@@ -22,7 +22,13 @@ TopicController.init = function () {
 
         e.preventDefault();
     });
-
+    $('#new-topic-form').on('submit', function(e) {
+        var formData = Utils.parseFormFields($(this));
+        TopicController.createTopic(formData);
+        e.preventDefault();
+        TopicView.cleanTopicForm();
+        fetchTopics();
+    });
     fetchTopics();
 };
 
@@ -37,3 +43,18 @@ function fetchTopics() {
         }
     );
 }
+
+function fetchTopic(id) {
+    Storage.getTopic(id).then(
+        function (topic) {
+            MessageView.renderContainer(topic);
+        },
+        function () {
+            console.log("Topic fetch failed", arguments);
+        }
+    );
+}
+
+TopicController.createTopic = function (topic) {
+    Storage.createTopic(topic);
+};

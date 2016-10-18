@@ -9,6 +9,12 @@ var Utils = {
      * @returns {object}
      */
     parseFormFields: function (form) {
+        var topic = {};
         //TODO use form.serializeArray() to get each field's name and value
+        $.each(form.serializeArray(), function(index, field) {
+            topic[field.name] = field.value;
+        });
+
+        return topic;
     }
 };

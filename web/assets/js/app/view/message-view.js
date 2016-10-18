@@ -87,18 +87,29 @@ function getMessageForm() {
  * @param {Array.<Message|Object>} messages
  * @param {jQuery} messagesEl
  */
-function renderMessages (messages, messagesEl) {
+MessageView.renderMessages  = function (messages, messagesEl) {
     //TODO
-}
+    messages.forEach(function (message) {
+        var newMessageEl = getMessageElement(message);
+        messagesEl.find('article:last').after(newMessageEl);
+    });
+};
 
 MessageView.renderContainer = function (topic) {
     //TODO
+    $('#main-container').html(getMessageContainer(topic));
+    $('#messages').show();
 };
 
 MessageView.clearAndRenderMessages = function (messages) {
     //TODO
+    var messagesEl = $('#messages');
+    messagesEl.find('article:not(:first)').remove();
+    MessageView.renderMessages(messages, messagesEl);
 };
 
 MessageView.clearMessageForm = function () {
     //TODO
+    $('textarea').val('');
+    $('#new-message-email').val('');
 };

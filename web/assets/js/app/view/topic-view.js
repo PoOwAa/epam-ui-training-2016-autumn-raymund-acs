@@ -95,3 +95,8 @@ TopicView.clearAndRenderTopics = function (topics) {
     topicsEl.find('article:not(:first)').remove();
     TopicView.renderTopics(topics, topicsEl);
 };
+
+TopicView.cleanTopicForm = function () {
+    $('textarea').val('');
+    $('#new-topic-email').val('');
+};
