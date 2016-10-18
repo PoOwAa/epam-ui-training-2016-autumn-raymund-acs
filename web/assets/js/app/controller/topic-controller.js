@@ -33,8 +33,8 @@ TopicController.init = function() {
 };
 
 TopicController.createTopic = function(topic) {
-    // TODO
     Storage.createTopic(topic);
+    setTimeout(fetchTopics(), 1000);
 };
 
 function fetchTopics() {

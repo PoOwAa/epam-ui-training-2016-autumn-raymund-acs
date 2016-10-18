@@ -9,17 +9,7 @@ var AjaxStorage = {
             var topics = [];
 
             data.forEach(function(item) {
-                var creationDate = new Date(item.creationDate);
-
-                // TODO Use these classes in the controllers
-                var topic = {
-                    id: item.id,
-                    title: item.title,
-                    email: item.email,
-                    creationDate: [creationDate.getFullYear(), creationDate.getMonth(), creationDate.getDay()].join('.'),
-                    creationTime: [creationDate.getHours(), creationDate.getMinutes()].join(':')
-                };
-
+                var topic = new Topic(item.id, item.title, item.creationDate, item.email);
                 topics.push(topic);
             });
 
@@ -35,22 +25,8 @@ var AjaxStorage = {
     getTopic: function(id) {
         return $.get("/forum/topic/" + encodeURIComponent(id)).
         then(function (item) {
-
-            var creationDate = new Date(item.creationDate);
-
-            // TODO Use these classes in the controllers
-            var topic = {
-                id: item.id,
-                title: item.title,
-                email: item.email,
-                creationDate: [ creationDate.getFullYear(),
-                                creationDate.getMonth(),
-                                creationDate.getDay() ].join('.'),
-                creationTime: [ creationDate.getHours(), 
-                                creationDate.getMinutes() ].join(':')
-            };
-
-            return topic;
-          });
+            var topic = new Topic(item.id, item.title, item.creationDate, item.email);
+            topics.push(topic);
+        });
     }
 };
