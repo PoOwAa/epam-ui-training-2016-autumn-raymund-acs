@@ -23,12 +23,14 @@ var AjaxStorage = (function (utils, $) {
      * GET request to "/forum/topic/{id}" - this will return an object
      * If success resolves with a new Topic
      *
-     * @todo: implement
      * @param int id
      * @returns Promise
      */
     AjaxStorage.prototype.getTopic = function (id) {
-
+        return $.get('/forum/topic/' + id).then(function (topic) {
+            console.log(topic);
+            return deserializeTopic(topic);
+        })
     };
 
     /**
@@ -36,12 +38,14 @@ var AjaxStorage = (function (utils, $) {
      * POST request to "/forum/topics"
      * Required fields: title, email
      *
-     * @todo: implement
      * @param Topic topic
      * @returns Promise
      */
     AjaxStorage.prototype.createTopic = function (topic) {
-
+        return $.post('/forum/topics', {
+            title : topic.title,
+            email : topic.email
+        });
     };
 
     /**
@@ -49,12 +53,15 @@ var AjaxStorage = (function (utils, $) {
      * GET request to "/forum/topics" - this will return an array of objects
      * Promise will be resolved with array of Topic objects
      *
-     * @todo: implement
      * @param string searchString
      * @returns Promise
      */
     AjaxStorage.prototype.getAllTopics = function (searchString) {
-
+        return $.get('/forum/topics?searchString=' + searchString).then(function (topics) {
+            return topics.map(function (topicData) {
+                return deserializeTopic(topicData);
+            });
+        });
     };
 
     /**
@@ -62,13 +69,15 @@ var AjaxStorage = (function (utils, $) {
      * POST request to"/forum/topic/{topicId}/messages"
      * Params: text, email
      *
-     * @todo: implement
      * @param Message message
      * @param int topicId
      * @returns Promise
      */
     AjaxStorage.prototype.createMessage = function (message, topicId) {
-
+        return $.post('/forum/topic/' + topicId + '/messages', {
+            text    :   message.text,
+            email   :   message.email
+        });
     };
 
     /**
@@ -77,13 +86,15 @@ var AjaxStorage = (function (utils, $) {
      * Params: searchString
      * Promise has to be resolved by a new array of Message objects
      *
-     * @todo: implement
      * @param string searchString
      * @param int topicId
      * @returns Promise
      */
     AjaxStorage.prototype.getAllMessages = function (searchString, topicId) {
-
+        return $.get('/forum/topic/' + topicId + '/messages?searchString=' + searchString).then(function (messages) {
+            console.log(messages);
+            return messages.map(deserializeMessage);
+        });
     };
 
     /**
@@ -110,10 +121,15 @@ var AjaxStorage = (function (utils, $) {
         var self = this;
         lastFetchedMessages = [];
         fetchNewMessagesTimer = setInterval(function () {
-            //@todo: implement
             //use getAllMessages method with the topicId and an empty search
             //if the loaded messages length differs from last lastFetchedMessages, notify the newMessagesFound object with the new topics
-        }, 10000);
+            self.getAllMessages('', topicId).then(function (messageList) {
+                if (lastFetchedMessages.length != messageList.length) {
+                    lastFetchedMessages = messageList;
+                    self.newMessagesFound.publish(messageList);
+                }
+            })
+        }, 1000);
     };
 
     AjaxStorage.prototype.stopCheckingNewMessages = function () {
@@ -124,9 +140,15 @@ var AjaxStorage = (function (utils, $) {
         var self = this;
         lastFetchedTopics = [];
         fetchNewTopicsTimer = setInterval(function () {
-            //@todo: implement
             //use getAllTopics and if the loaded topics length differs from the length of the last elements, notify newTopicsFound event
-        }, 10000);
+            self.getAllTopics("").then(function (topicsList) {
+                if (lastFetchedTopics.length != topicsList.length) {
+                    lastFetchedTopics = topicsList;
+                    self.newTopicsFound.publish(topicList);
+                }
+            });
+
+        }, 1000);
     };
 
     AjaxStorage.prototype.stopCheckingNewTopics = function () {

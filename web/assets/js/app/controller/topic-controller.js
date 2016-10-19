@@ -69,8 +69,11 @@ var TopicController = (function (topicView, storage, ToastController, utils, $) 
             });
 
             // Check and display new topics
-            //@Todo: call watcher register for topics
-            //@Todo: subscribe for new topic events
+            storage.startCheckingNewTopics();
+            storage.newTopicsFound.subscribe(function (topics) {
+                self.topics = topics;
+                topicView.clearAndRenderTopics(topics);
+            });
 
             fetchTopics();
         },

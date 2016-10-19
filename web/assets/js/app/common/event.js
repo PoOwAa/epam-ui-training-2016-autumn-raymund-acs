@@ -10,31 +10,33 @@ var Event = (function () {
     /**
      * Subscribe with the given handler to the current event.
      *
-     * @todo: implement; store the handler
      * @param {function} handler
      */
     Event.prototype.subscribe = function (handler) {
+        this.handlers.push(handler);
     };
 
     /**
      * Unsubscribe with the given handler from the current event.
      *
-     * @todo: implement; search for the selected handler and remove it
      * @param {function} handler
      */
     Event.prototype.unsubscribe = function (handler) {
-
+        this.handlers = this.handlers.filter(function (actualHandler) {
+            return handler != actualHandler;
+        });
     };
 
     /**
      * Notifies the subscribers of the current event,
      * with the given parameters.
      *
-     * @todo: implement; call every registered methods with the defined params
      * @param {*} eventParams
      */
     Event.prototype.publish = function (eventParams) {
-
+        this.handlers.forEach(function (handler) {
+            handler(eventParams);
+        });
     };
 
     return Event;

@@ -80,7 +80,12 @@ var MessageController = (function (messageView, storage, ToastController, utils,
 
             // Check and display new messages in this topic
             //@Todo: register notifiers for new messages with the selected topicId
+            storage.startCheckingNewMessages(topicId);
             //@Todo: subscribe for new messages event
+            storage.newMessagesFound.subscribe(function (messages) {
+                self.messages = messages;
+                messageView.clearAndRenderMessages(messages);
+            });
 
             fetchTopic(topicId);
         },
