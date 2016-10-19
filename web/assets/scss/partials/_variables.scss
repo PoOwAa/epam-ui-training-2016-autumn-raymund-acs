@@ -1,0 +1,31 @@
+// Media query breakpoints
+$breakpoint-small: 600px;
+$breakpoint-medium: 768px;
+
+// Widths
+$max-content-width: 1000px;
+$min-width: 320px;
+
+// z-index
+$z-index-header-footer: 100;
+
+//other
+
+$topic-l-tile-width: 32.27459016393443%;
+$topic-l-tile-count-in-row: 3;
+$topic-l-tile-h-spacing: (100 - ($topic-l-tile-width * $topic-l-tile-count-in-row)) / ($topic-l-tile-count-in-row * 2);
+$topic-l-tile-v-spacing: 15px;
+
+$topic-m-tile-width: 48%;
+$topic-m-tile-count-in-row: 2;
+$topic-m-tile-h-spacing: (100 - ($topic-m-tile-width * $topic-m-tile-count-in-row)) / ($topic-m-tile-count-in-row * 2);
+
+$h-padding: 12px;
+
+$epam-logo-height: 35px;
+$epam-logo-width: 100px;
+
+$header-max-height: 53px;
+$footer-max-height: 55px;
+
+$input-group-height: 28px;
