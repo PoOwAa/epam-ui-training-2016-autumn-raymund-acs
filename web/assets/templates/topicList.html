@@ -16,20 +16,21 @@
                        tabindex="2"/>
                 <div class="error-bubble" data-for="email">Please provide a valid email address</div>
                 <span><button type="submit"
+                              ng-click="send()"
                               tabindex="3"
                               class="submit-button">Add</button></span>
             </div>
         </form>
     </article>
 
-    <article class="tile topic">
-        <a href="#/topic/0"><div class="content">Topic title</div></a>
+    <article class="tile topic" ng-repeat="topic in allTopics">
+        <a href="#/topic/{{ topic.id }}"><div class="content">{{ topic.title }}</div></a>
         <div class="info">
             <div class="date-time">
-                <div class="date"><span class="sprite calendar"></span> Date</div>
-                <div class="time"><span class="sprite clock"></span> Time</div>
+                <div class="date"><span class="sprite calendar"></span>{{ topic.creationDate }}</div>
+                <div class="time"><span class="sprite clock"></span>{{ topic.creationTime }}</div>
             </div>
-            <div class="email"  title="Email"><span class="sprite at"></span> Email</div>
+            <div class="email" title="Email"><span class="sprite at"></span>{{ topic.email }}</div>
         </div>
     </article>
 </main>
